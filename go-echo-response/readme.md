@@ -28,7 +28,7 @@ import (
 ### Create Function response json
 
 ```sh
-func ResponseJson(c echo.Context) error {
+func ResponseJSON(c echo.Context) error {
 	dataReponse := map[string]string{
 		"message": "Hello",
 	}
@@ -47,7 +47,7 @@ func ResponseString(c echo.Context) error {
 ### Create Function response html
 
 ```sh
-func ResponseHtml(c echo.Context) error {
+func ResponseHTML(c echo.Context) error {
 	return c.HTML(http.StatusOK, "<h1>Hello</h1>")
 }
 ```
@@ -76,9 +76,9 @@ func String(c echo.Context) (err error) {
 ```sh
 func main() {
 	e := echo.New()
-	e.GET("/json", ResponseJson)
+	e.GET("/json", ResponseJSON)
 	e.GET("/string", ResponseString)
-	e.GET("/html", ResponseHtml)
+	e.GET("/html", ResponseHTML)
 	e.GET("/file", ResponseStream)
 	e.Logger.Fatal(e.Start(":3000"))
 }
