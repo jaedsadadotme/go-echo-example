@@ -23,3 +23,4 @@ $ go get -u github.com/labstack/echo/...
 
 - [golang-echo-helloworld](./go-echo-helloworld/readme.md)
 - [golang-echo-dockerfile](./golang-echo-dockerfile/readme.md)
+- [golang-echo-request](./golang-echo-request/readme.md)
