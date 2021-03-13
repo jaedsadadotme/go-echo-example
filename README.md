@@ -26,3 +26,4 @@ $ go get -u github.com/labstack/echo/...
 - [golang-echo-request](./go-echo-request/readme.md)
 - [golang-echo-response](./go-echo-response/readme.md)
 - [golang-echo-crud-mysql](./go-echo-crud-mysql/readme.md)
+- [golang-echo-sockets](./go-sockets/readme.md)

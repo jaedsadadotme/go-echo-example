@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web sockets</title>
+</head>
+<body>
+    <div>
+        <button id="time">Time now</button>
+        <hr>
+        <input type="text" id="input">
+        <button id="send">send</button>
+        <hr>
+        <div id="output"></div>
+    </div>
+</body>
+<script>
+    uri     = "ws://localhost:1323"
+    path    = "/ws"
+    const socket    = new WebSocket(uri + path);
+    socket.onopen   = function() {
+        console.log('Connected')
+    }
+    socket.onmessage = function(event) {
+      var out = document.getElementById('output');
+      out.innerHTML += event.data + '<br>';
+    }
+    document.getElementById("send").addEventListener("click", function () {
+        console.log("Send data to server => ", input.value);
+        socket.send(document.getElementById('input').value);
+        document.getElementById('input').value = "";
+    });
+    document.getElementById("time").addEventListener("click", function () {
+        setInterval(() => {
+            console.log("Send data to server => ", "time");
+            socket.send("time");
+        }, 1000);
+    });
+</script>
+</html>
